@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 /**
  * Example class to show how the HighscoreService can be used
@@ -20,7 +16,7 @@ public class TestPanel : MonoBehaviour {
     [SerializeField] private TMP_InputField _appSecret;
     [SerializeField] private TMP_InputField _score;
     [SerializeField] private TextMeshProUGUI _submitResult;
-    [SerializeField] private UnityEngine.UI.Toggle _orderToggle;
+    [SerializeField] private Toggle _orderToggle;
     
     [SerializeField] private TextAsset _appSecretFile;
     [SerializeField] private HighscorePanel _highscorePanel; 
@@ -126,11 +122,11 @@ public class TestPanel : MonoBehaviour {
     
     private void InitializeTestFields() {
         if (!PlayerPrefs.HasKey("playerName")) {
-            PlayerPrefs.SetString("playerName", $"player-{GUID.Generate()}");
+            PlayerPrefs.SetString("playerName", $"player-{Guid.NewGuid()}");
         }
 
         if (!PlayerPrefs.HasKey("playerId")) {
-            PlayerPrefs.SetString("playerId", $"playerId-{GUID.Generate()}");
+            PlayerPrefs.SetString("playerId", $"playerId-{Guid.NewGuid()}");
         }
 
         _playerName.text = PlayerPrefs.GetString("playerName");
