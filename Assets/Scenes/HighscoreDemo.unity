@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0eb0a727109c248957d00919d05bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _apiUrl: http://simplehighscoreservice-env.eba-prbzkupc.eu-central-1.elasticbeanstalk.com/api/highscore
+  _apiUrl: https://www.highscores.ovh/api/highscore
   _playerName: {fileID: 152993262}
   _playerId: {fileID: 1838537594}
   _appId: {fileID: 284732707}
