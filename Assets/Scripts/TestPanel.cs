@@ -116,7 +116,7 @@ public class TestPanel : MonoBehaviour {
         PlayerPrefs.SetString("playerId", _playerId.text);
         PlayerPrefs.SetString("appId", _appId.text);
         PlayerPrefs.SetString("appSecret", _appSecret.text);
-        PlayerPrefs.SetString("score", _score.text);
+//        PlayerPrefs.SetString("score", _score.text);
         PlayerPrefs.Save();
     }
     
@@ -140,9 +140,10 @@ public class TestPanel : MonoBehaviour {
             _appSecret.text = PlayerPrefs.GetString("appSecret");
         }
 
-        if (PlayerPrefs.HasKey("score")) {
-            _score.text = PlayerPrefs.GetString("score");
-        }
+        _score.text = "100";
+//        if (PlayerPrefs.HasKey("score")) {
+//            _score.text = PlayerPrefs.GetString("score");
+//        }
     }
 
 }
