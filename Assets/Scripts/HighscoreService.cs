@@ -17,10 +17,12 @@ public class HighscoreService {
     }
 
     public IEnumerator SubmitScore(string playerId, string playerName, long score, Action onSuccess,
-        Action<UnityWebRequest.Result> onFailure) {
+        Action<UnityWebRequest.Result> onFailure, ScoreOrder order = ScoreOrder.DESC) {
         var checksum = CalculateChecksum(playerId, score);
         using (UnityWebRequest request =
-            UnityWebRequest.Post($"{_apiUrl}?appId={_appId}&playerId={playerId}&playerName={playerName}&score={score}&checksum={checksum}","")) {
+            UnityWebRequest.Post(
+                $"{_apiUrl}?appId={_appId}&playerId={playerId}&playerName={playerName}&score={score}&checksum={checksum}&order={order}",
+                "")) {
             yield return request.SendWebRequest();
             while (!request.isDone)
                 yield return null;
@@ -36,12 +38,13 @@ public class HighscoreService {
     private string CalculateChecksum(string playerId, long score) {
         var bytes = System.Text.Encoding.UTF8.GetBytes(playerId + score + _appSecret);
         var checksum = new MD5CryptoServiceProvider().ComputeHash(bytes);
-        return BitConverter.ToString(checksum).Replace("-","");
+        return BitConverter.ToString(checksum).Replace("-", "");
     }
 
     public IEnumerator GetHighscores(string playerId, Action<HighscoreResults> onSuccess,
         Action<UnityWebRequest.Result> onFailure, ScoreOrder scoreOrder = ScoreOrder.DESC) {
-        using (UnityWebRequest request = UnityWebRequest.Get($"{_apiUrl}?appId={_appId}&playerId={playerId}&order={Enum.GetName(typeof(ScoreOrder), scoreOrder)}")
+        using (UnityWebRequest request = UnityWebRequest.Get(
+            $"{_apiUrl}?appId={_appId}&playerId={playerId}&order={Enum.GetName(typeof(ScoreOrder), scoreOrder)}")
         ) {
             yield return request.SendWebRequest();
             while (!request.isDone)
@@ -75,5 +78,6 @@ public struct HighscoreResultItemDto {
 }
 
 public enum ScoreOrder {
-    ASC, DESC
+    ASC,
+    DESC
 }

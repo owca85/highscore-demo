@@ -21,6 +21,7 @@ public class TestPanel : MonoBehaviour {
     [SerializeField] private TextAsset _appSecretFile;
     [SerializeField] private HighscorePanel _highscorePanel; 
     
+    
     private bool _initialized;
     
     private void Awake() {
@@ -57,7 +58,7 @@ public class TestPanel : MonoBehaviour {
 
     public void SubmitScore() {
         StartCoroutine(
-            GetService().SubmitScore(_playerId.text, _playerName.text, long.Parse(_score.text), OnSubmitSuccess, OnSubmitFailure));
+            GetService().SubmitScore(_playerId.text, _playerName.text, long.Parse(_score.text), OnSubmitSuccess, OnSubmitFailure, GetOrder()));
     }
 
     public void GetHighscores() {

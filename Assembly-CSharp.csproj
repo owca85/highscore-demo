@@ -52,17 +52,17 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\WebGLSupport\WebGLInput\WebGLInput.cs" />
+    <Compile Include="Assets\WebGLSupport\WebGLInput\Wrapper\WrappedInputField.cs" />
     <Compile Include="Assets\Scripts\HighscoreRow.cs" />
     <Compile Include="Assets\Scripts\TestPanel.cs" />
     <Compile Include="Assets\Scripts\HighscoreService.cs" />
-    <Compile Include="Assets\Scripts\HighscorePanel.cs" />
-    <Compile Include="Assets\WebGLSupport\WebGLInput\WebGLInput.cs" />
-    <Compile Include="Assets\WebGLSupport\WebGLInput\Detail\RebuildChecker.cs" />
-    <Compile Include="Assets\WebGLSupport\WebGLInput\Wrapper\IInputField.cs" />
     <Compile Include="Assets\WebGLSupport\WebGLInput\Mobile\WebGLInputMobile.cs" />
     <Compile Include="Assets\WebGLSupport\WebGLInput\Wrapper\WrappedTMPInputField.cs" />
-    <Compile Include="Assets\WebGLSupport\WebGLInput\Wrapper\WrappedInputField.cs" />
     <Compile Include="Assets\WebGLSupport\WebGLWindow\WebGLWindow.cs" />
+    <Compile Include="Assets\Scripts\HighscorePanel.cs" />
+    <Compile Include="Assets\WebGLSupport\WebGLInput\Wrapper\IInputField.cs" />
+    <Compile Include="Assets\WebGLSupport\WebGLInput\Detail\RebuildChecker.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
